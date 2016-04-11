@@ -98,7 +98,7 @@ usermod -aG docker centos
 
 
 
-#Common issue1  
+#Common issue#1  
 
 docker run hello-world
 
@@ -176,7 +176,7 @@ Successfully installed kitchen-docker-2.3.0
 
 
 
-#Common issues2
+#Common issue#2
 
 
 ####Command to run is    'kitchen list'
@@ -198,7 +198,7 @@ Please see .kitchen/logs/kitchen.log for more details
 Also try running `kitchen diagnose --all` for configuration
 
 
-#### Solution to common issue2: 
+#### Solution to common issue#2 
 
 What is happening is that the driver is trying to run the CLI check as sudo but can't because it is hiding the prompt for the password.
 Updating the driver config to be something like this fixed it for me..
