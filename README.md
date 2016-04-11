@@ -148,13 +148,22 @@ rpm -Uvh chefdk-0.12.0-1.el7.x86_64.rpm
 # Now create a project folder and run below command
 
 kitchen init --driver=kitchen-docker
+
+
 create  .kitchen.yml
+
 create  chefignore
+
 create  test/integration/default
+
 Fetching: kitchen-docker-2.3.0.gem (100%)
+
 WARNING:  You don't have /root/.chefdk/gem/ruby/2.1.0/bin in your PATH,
+
 gem executables will not run.
+
 Successfully installed kitchen-docker-2.3.0
+
 1 gem installed
 
 
@@ -164,9 +173,14 @@ Successfully installed kitchen-docker-2.3.0
 ####Error below
 
 kitchen list
+
+
+
 ------Exception-------
 
+
 Class: Kitchen::UserError
+
 
 Message: You must first install the Docker CLI tool 
 
