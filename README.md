@@ -178,7 +178,9 @@ Updating the driver config to be something like this fixed it for me..
 
 
 driver:
+
 name: docker
+
 use_sudo: false
 
 
@@ -188,22 +190,29 @@ use_sudo: false
 
 ---
 driver:
+
   name: docker
+
   use_sudo: false
 
 provisioner:
+
   name: chef_solo
 
 platforms:
+
   - name: centos-7.1
 
 suites:
+
   - name: default
+
     run_list:
+
     attributes:
 
 
-#install some more drivers - if you are planning to work on ec2, azure, CFN templates, asnible etc
+#Install some more drivers - if you are planning to work on ec2, azure, CFN templates, asnible etc
 
 kitchen init --driver=kitchen-cloudformation  kitchen-ec2 kitchen-inspector kitchen-inspec kitchen-ansible kitchen-azure kitchen-fog kitchen-chef-extended-attributes kitchen-all
 
