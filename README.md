@@ -56,12 +56,18 @@ systemctl status docker.service
 systemctl is-enabled docker.service
 
 #Need to verify this settings
-#restart after crash
+Restart after crash
+ 
  vi /etc/systemd/system/multi-user.target.wants/docker.service
+
 [Service]
+
 ...
+
 ...
+
 Restart=always
+
 
 ####Some Notes
 Docker daemon. This daemon currently requires root privileges
@@ -82,9 +88,13 @@ usermod -aG docker centos
 docker run hello-world
 
 Error below
+
 docker: Cannot connect to the Docker daemon. Is the docker daemon running on this host?.
+
 See 'docker run --help'.
+
 .....
+
 .....
 
 # Solution to common issue1: Start service to fix the issue
