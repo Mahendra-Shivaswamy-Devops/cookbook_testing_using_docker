@@ -23,7 +23,7 @@ rm -rf /var/lib/docker
 
 #If not installed, install latest version using below commands
 
-#Install either using repo or script provided by docker
+###Install either using repo or script provided by docker
 
 sudo tee /etc/yum.repos.d/docker.repo <<-'EOF'
 [dockerrepo]
@@ -125,18 +125,16 @@ docker rm containerid
 docker rmi images
 
 
+#Install Chef DK
 
-
-#install Chef DK
-
+###This should work for Centos7 Only
 wget https://packages.chef.io/stable/el/7/chefdk-0.12.0-1.el7.x86_64.rpm
 rpm -Uvh chefdk-0.12.0-1.el7.x86_64.rpm 
 
 
 
+# Now create a project folder and run below command
 
-
-##########
 kitchen init --driver=kitchen-docker
 create  .kitchen.yml
 create  chefignore
@@ -148,8 +146,8 @@ Successfully installed kitchen-docker-2.3.0
 1 gem installed
 
 
-##########
-Common issues2
+
+#Common issues2
 
 #Error below
 
