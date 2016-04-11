@@ -1,5 +1,5 @@
-# cookbook_testing_using_docker
-cookbook_testing_using_docker
+# Cookbook_testing_using_docker
+Cookbook_testing_using_docker
 
 
 
@@ -11,7 +11,7 @@ uname -a
 Linux ip-10-45-213-178 3.10.0-229.20.1.el7.x86_64 #1 SMP Tue Nov 3 19:10:07 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux
 yum update
 
-#check if already installed
+#Check if already installed
 yum list installed | grep docker
 docker-engine.x86_64                1.10.3-1.el7.centos        @docker-main-repo
 docker-engine-selinux.noarch        1.10.3-1.el7.centos        @docker-main-repo
@@ -21,7 +21,7 @@ docker-engine-selinux.noarch        1.10.3-1.el7.centos        @docker-main-repo
 yum -y remove docker-engine.x86_64
 rm -rf /var/lib/docker
 
-#if not installed, install latest version using below commands
+#If not installed, install latest version using below commands
 
 #Install either using repo or script provided by docker
 
@@ -77,27 +77,30 @@ usermod -aG docker centos
 
 
 
-#common issue1  
-
-
-
+#Common issue1  
 
 docker run hello-world
 
-# error below
+Error below
 docker: Cannot connect to the Docker daemon. Is the docker daemon running on this host?.
 See 'docker run --help'.
+.....
+.....
 
-# start service to fix the issue
+# Solution to common issue1: Start service to fix the issue
 service docker start
+
 Redirecting to /bin/systemctl start  docker
 
 
-#verify docker daemon and its functionality
+#Verify docker daemon and its functionality
 docker run hello-world
 
 Unable to find image 'hello-world:latest' locally
 latest: Pulling from library/hello-world
+....
+.....
+......
 
 
 
@@ -125,12 +128,12 @@ rpm -Uvh chefdk-0.12.0-1.el7.x86_64.rpm
 
 ##########
 kitchen init --driver=kitchen-docker
-      create  .kitchen.yml
-      create  chefignore
-      create  test/integration/default
+create  .kitchen.yml
+create  chefignore
+create  test/integration/default
 Fetching: kitchen-docker-2.3.0.gem (100%)
 WARNING:  You don't have /root/.chefdk/gem/ruby/2.1.0/bin in your PATH,
-          gem executables will not run.
+gem executables will not run.
 Successfully installed kitchen-docker-2.3.0
 1 gem installed
 
@@ -141,26 +144,27 @@ Common issues2
 #Error below
 
 kitchen list
->>>>>> ------Exception-------
->>>>>> Class: Kitchen::UserError
->>>>>> Message: You must first install the Docker CLI tool http://www.docker.io/gettingstarted/
->>>>>> ----------------------
->>>>>> Please see .kitchen/logs/kitchen.log for more details
->>>>>> Also try running `kitchen diagnose --all` for configuration
+------Exception-------
+Class: Kitchen::UserError
+Message: You must first install the Docker CLI tool 
+----------------------
+Please see .kitchen/logs/kitchen.log for more details
+Also try running `kitchen diagnose --all` for configuration
+
+# Solution to common issue1: Start service to fix the issue
 
 What is happening is that the driver is trying to run the CLI check as sudo but can't because it is hiding the prompt for the password.
-Updating the driver config to be something like this fixed it for me,
+Updating the driver config to be something like this fixed it for me..
+
 
 driver:
 name: docker
 use_sudo: false
 
 
-vi .kitchen.yml
-# add use_sudo: false to .kitchen,yml file  
 
 
-
+# Now this is how yaml(yet another xml file) file looks like
 
 ---
 driver:
@@ -179,6 +183,7 @@ suites:
     attributes:
 
 
-#install some more drivers
+#install some more drivers - if you are planning to work on ec2, azure, CFN templates, asnible etc
+
 kitchen init --driver=kitchen-cloudformation  kitchen-ec2 kitchen-inspector kitchen-inspec kitchen-ansible kitchen-azure kitchen-fog kitchen-chef-extended-attributes kitchen-all
 
