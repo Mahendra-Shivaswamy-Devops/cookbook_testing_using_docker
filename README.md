@@ -178,10 +178,9 @@ Successfully installed kitchen-docker-2.3.0
 
 #Common issues2
 
+
+####Command to run is    'kitchen list'
 ####Error below
-
-kitchen list
-
 
 
 ------Exception-------
@@ -199,7 +198,7 @@ Please see .kitchen/logs/kitchen.log for more details
 Also try running `kitchen diagnose --all` for configuration
 
 
-# Solution to common issue1: Start service to fix the issue
+#### Solution to common issue2: Start service to fix the issue
 
 What is happening is that the driver is trying to run the CLI check as sudo but can't because it is hiding the prompt for the password.
 Updating the driver config to be something like this fixed it for me..
