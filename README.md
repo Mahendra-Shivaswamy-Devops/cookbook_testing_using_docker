@@ -144,7 +144,9 @@ docker rmi images
 #Install Chef DK
 
 ###This should work for Centos7 Only
+
 wget https://packages.chef.io/stable/el/7/chefdk-0.12.0-1.el7.x86_64.rpm
+
 rpm -Uvh chefdk-0.12.0-1.el7.x86_64.rpm 
 
 
