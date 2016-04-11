@@ -3,17 +3,25 @@ Cookbook_testing_using_docker
 
 
 
+#Prerequisites
 
 Docker requires a 64-bit installation regardless of your CentOS version.
 Also, your kernel must be 3.10 at minimum, which CentOS 7 runs
 
+###Verify Prerequisites
+
 uname -a
-Linux ip-10-45-213-178 3.10.0-229.20.1.el7.x86_64 #1 SMP Tue Nov 3 19:10:07 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux
+
+Linux ip-10-45-213-178 3.10.0-229.20.1.el7.x86_64 #1 
+SMP Tue Nov 3 19:10:07 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux
+
 yum update
 
 #Check if already installed
 yum list installed | grep docker
+
 docker-engine.x86_64                1.10.3-1.el7.centos        @docker-main-repo
+
 docker-engine-selinux.noarch        1.10.3-1.el7.centos        @docker-main-repo
 
 
