@@ -127,9 +127,9 @@ latest: Pulling from library/hello-world
 
 
 #Some common commands
-###list all running containers
+###List all running containers
 docker ps
-###list all running + stopped containers
+###List all running + stopped containers
 docker ps -a
 ###Remove container by providing the id
 docker rm containerid
