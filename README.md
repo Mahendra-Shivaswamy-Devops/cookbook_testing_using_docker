@@ -191,13 +191,13 @@ use_sudo: false
 ---
 driver:
 
-  name: docker
+   name: docker
 
-  use_sudo: false
+   use_sudo: false
 
 provisioner:
 
-  name: chef_solo
+   name: chef_solo
 
 platforms:
 
