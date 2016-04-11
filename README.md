@@ -60,9 +60,13 @@ service docker start
 
 #Start docker at boot
 chkconfig docker on
+
 chkconfig --list docker
+
 systemctl enable docker.service
+
 systemctl status docker.service
+
 systemctl is-enabled docker.service
 
 ####Do not use this yet-Need to verify this settings
