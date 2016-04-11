@@ -65,8 +65,8 @@ systemctl enable docker.service
 systemctl status docker.service
 systemctl is-enabled docker.service
 
-###(Do not use this yet-Need to verify this settings
-###Ignore for now
+####Do not use this yet-Need to verify this settings
+####Ignore for now
 This is to restart daemon automatically upon crash
 
 vi /etc/systemd/system/multi-user.target.wants/docker.service
@@ -127,13 +127,13 @@ latest: Pulling from library/hello-world
 
 
 #Some common commands
-#list all running containers
+###list all running containers
 docker ps
-#list all running + stopped containers
+###list all running + stopped containers
 docker ps -a
-# Remove container by providing the id
+###Remove container by providing the id
 docker rm containerid
-#Remove docker image by its image name
+###Remove docker image by its image name
 docker rmi images
 
 
@@ -161,15 +161,21 @@ Successfully installed kitchen-docker-2.3.0
 
 #Common issues2
 
-#Error below
+####Error below
 
 kitchen list
 ------Exception-------
+
 Class: Kitchen::UserError
+
 Message: You must first install the Docker CLI tool 
+
 ----------------------
+
 Please see .kitchen/logs/kitchen.log for more details
+
 Also try running `kitchen diagnose --all` for configuration
+
 
 # Solution to common issue1: Start service to fix the issue
 
@@ -182,34 +188,6 @@ driver:
 name: docker
 
 use_sudo: false
-
-
-
-
-# Now this is how yaml(yet another xml file) file looks like
-
----
-driver:
-
-   name: docker
-
-   use_sudo: false
-
-provisioner:
-
-   name: chef_solo
-
-platforms:
-
-  - name: centos-7.1
-
-suites:
-
-  - name: default
-
-    run_list:
-
-    attributes:
 
 
 #Install some more drivers - if you are planning to work on ec2, azure, CFN templates, asnible etc
