@@ -113,7 +113,9 @@ See 'docker run --help'.
 .....
 
 
-# Solution to common issue1: Start service to fix the issue
+#### Solution to common issue1: 
+###Start service to fix the issue
+
 service docker start
 
 Redirecting to /bin/systemctl start  docker
