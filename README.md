@@ -65,10 +65,11 @@ systemctl enable docker.service
 systemctl status docker.service
 systemctl is-enabled docker.service
 
-#Need to verify this settings
-Restart after crash
- 
- vi /etc/systemd/system/multi-user.target.wants/docker.service
+###(Do not use this yet-Need to verify this settings
+###Ignore for now
+This is to restart daemon automatically upon crash
+
+vi /etc/systemd/system/multi-user.target.wants/docker.service
 
 [Service]
 
@@ -79,17 +80,17 @@ Restart after crash
 Restart=always
 
 
-####Some Notes
+#Some Notes
+
 Docker daemon. This daemon currently requires root privileges
 So, only trusted users should be allowed to control your Docker daemon
 Docker allows you to share a directory between the Docker host and a guest container. it can also be /root.
 The docker daemon binds to a Unix socket instead of a TCP port. By default that Unix socket is owned by the user root and other users can access it with sudo. For this reason, docker daemon always runs as the root user.
 
 To avoid having to use sudo when you use the docker command, create a Unix group called docker and add users to it. When the docker daemon starts, it makes the ownership of the Unix socket read/writable by the docker group.
-
 usermod -aG docker centos
 
-#######################
+
 
 
 
@@ -106,6 +107,7 @@ See 'docker run --help'.
 .....
 
 .....
+
 
 # Solution to common issue1: Start service to fix the issue
 service docker start
@@ -205,3 +207,6 @@ suites:
 
 kitchen init --driver=kitchen-cloudformation  kitchen-ec2 kitchen-inspector kitchen-inspec kitchen-ansible kitchen-azure kitchen-fog kitchen-chef-extended-attributes kitchen-all
 
+
+
+#Now test Cookbooks
