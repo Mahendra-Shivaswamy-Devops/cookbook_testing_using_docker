@@ -156,7 +156,7 @@ rpm -Uvh chefdk-0.12.0-1.el7.x86_64.rpm
 kitchen init --driver=kitchen-docker
 
 ###Output should be something like this
-###It hsould create .kitchen.yml file
+###It should create .kitchen.yml file
 
 create  .kitchen.yml
 
