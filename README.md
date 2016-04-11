@@ -26,7 +26,9 @@ docker-engine-selinux.noarch        1.10.3-1.el7.centos        @docker-main-repo
 
 
 #To remove old docker version and everything related to docker
+
 yum -y remove docker-engine.x86_64
+
 rm -rf /var/lib/docker
 
 #If not installed, install latest version using below commands
